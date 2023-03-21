@@ -28,13 +28,21 @@ class UserServices extends BaseServices
     public function addUserInfor($requestData)
     {
         $validate = $this->validateAddUser($requestData);
-        dd($validate->getErrors());
-        if($validate->getErrors()){
-            return[
-                'status'=>ResultUtils::STATUS_CODE_ERR,
+
+        if ($validate->getErrors()) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'masageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => $validate->getErrors()
             ];
-        };
-        dd('hêt');
+        }
+        ;
+        return [
+            'status' => ResultUtils::STATUS_CODE_OK,
+            'masageCode' => ResultUtils::MESSAGE_CODE_OK,
+            'messages' => ['succes' => 'Thêm dữ liệu thành công']
+        ];
+
     }
     private function validateAddUser($requestData)
     {
@@ -63,7 +71,7 @@ class UserServices extends BaseServices
         ];
         $this->validation->setRules($rule, $messages);
         $this->validation->withRequest($requestData)->run();
-    
+
         return $this->validation;
     }
 }

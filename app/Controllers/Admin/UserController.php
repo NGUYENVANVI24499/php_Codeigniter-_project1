@@ -40,6 +40,6 @@ class UserController extends BaseController
     }
     public function create(){
         $result = $this->service->addUserInfor($this->request);
-        return redirect()->back();
+        return redirect()->back()->withInput()->with($result['masageCode'],$result['messages']);
     }
 }
