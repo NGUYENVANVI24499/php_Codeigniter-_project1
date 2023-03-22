@@ -17,7 +17,7 @@
                                     <th scope="col">id</th>
                                     <th scope="col">Tên</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Quyền</th>
+
                                     <th scope="col">Chức năng</th>
                                 </tr>
                             </thead>
@@ -27,9 +27,9 @@
                                     <td><?=$user['id']?> </td>
                                     <td><?=$user['name']?></td>
                                     <td><?=$user['email']?></td>
-                                    <td>role 1</td>
+                                    
                                     <td class="text-center">
-                                        <a href="user-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="admin/user/edit/<?=$user['id']?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                         <a data-url="" class="btn btn-danger btn-del-confirm"><i
                                                 class="far fa-trash-alt"></i></a>
                                     </td>

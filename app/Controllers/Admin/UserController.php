@@ -42,4 +42,21 @@ class UserController extends BaseController
         $result = $this->service->addUserInfor($this->request);
         return redirect()->back()->withInput()->with($result['masageCode'],$result['messages']);
     }
+    public function edit($id){
+        $user = $this->service->getUserByID($id);
+        if(!$user){
+            return redirect('error/404');
+        }
+        $jsFile =[
+            base_url() . '/assets/admin/js/event.js'
+        ];
+        $data =[];
+        $dataLayout['user'] = $user;
+        $data = $this->loadMasterlayout([],'sua','admin/pages/user/edit-user', $dataLayout,[], $jsFile);
+        return view('admin/admin', $data);
+    }
+    public function update(){
+        $result = $this->service->updateUserInfo($this->request);
+        return redirect()->back()->withInput()->with($result['masageCode'],$result['messages']);
+    }
 }
