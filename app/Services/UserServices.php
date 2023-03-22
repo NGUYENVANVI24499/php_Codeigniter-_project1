@@ -97,6 +97,22 @@ class UserServices extends BaseServices
             ];
         }
     }
+    public function deleteUser($id){
+        try {
+            $this->user->delete($id);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'masageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'messages' => ['succes' => 'Xoa dữ liệu thành công']
+            ];
+        } catch (Exception $e) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'masageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'messages' => ['err' => $e->getMessage()]
+            ];
+        }
+   }
 
     private function validateAddUser($requestData)
     {
@@ -161,5 +177,5 @@ class UserServices extends BaseServices
         return $this->validation;
     }
 
-   
+    
 }

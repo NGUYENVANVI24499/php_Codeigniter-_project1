@@ -42,6 +42,7 @@ $routes->group('admin',function($routes){
         $routes->get('edit/(:num)','Admin\UserController::edit/$1');
         $routes->post('create','Admin\UserController::create');
         $routes->post('update','Admin\UserController::update');
+        $routes->get('delete/(:num)','Admin\UserController::detete/$1');
     });
 });
 /*

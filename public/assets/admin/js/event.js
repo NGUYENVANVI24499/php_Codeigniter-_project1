@@ -15,3 +15,12 @@ function showChangePass(status){
     $('#password').val('')
     $('#password-confirm').val('')
 }
+
+$('.btn-del-confirm').click(function(){
+    let url = $(this).data('url')
+    if(!confirm('du lieu se bi mat')){
+        return
+    }
+    
+    window.location.href = url
+})

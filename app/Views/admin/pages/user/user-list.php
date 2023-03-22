@@ -10,6 +10,7 @@
                         </div>
                         <div class="easion-card-title">Danh sách tài khoản</div>
                     </div>
+                    <?= view('messages/message'); ?>
                     <div class="card-body ">
                         <table id="datatable" class="cell-border">
                             <thead>
@@ -30,7 +31,7 @@
                                     
                                     <td class="text-center">
                                         <a href="admin/user/edit/<?=$user['id']?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a data-url="" class="btn btn-danger btn-del-confirm"><i
+                                        <a data-url="<?=base_url()?>admin/user/delete/<?=$user['id']?>" class="btn btn-danger btn-del-confirm"><i
                                                 class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
