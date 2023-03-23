@@ -12,6 +12,7 @@ $routes = Services::routes();
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('HomeController');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -33,9 +34,12 @@ $routes->get('/', 'User\HomeController::index');
 $routes->get('error/404',function(){
     return view('errors/html/error_404');
 });
+$routes->get('login','Admin\LoginController::index');
+$routes->post('login','Admin\LoginController::login');
 
-$routes->group('admin',function($routes){
+$routes->group('admin',['filter'=>'adminFilter'],function($routes){
     $routes->get('home','Admin\HomeController::index');
+    $routes->get('logout','Admin\LoginController::logout');
     $routes->group('user',function($routes){
         $routes->get('list','Admin\UserController::index');
         $routes->get('add','Admin\UserController::add');
