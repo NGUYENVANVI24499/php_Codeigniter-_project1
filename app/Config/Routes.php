@@ -49,6 +49,11 @@ $routes->group('admin',['filter'=>'adminFilter'],function($routes){
         $routes->get('delete/(:num)','Admin\UserController::detete/$1');
     });
 });
+
+
+$route['default_controller'] = 'captcha_form';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -65,4 +70,5 @@ $routes->group('admin',['filter'=>'adminFilter'],function($routes){
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
 

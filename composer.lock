@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d648ee3b65e8d352e12e15817702e7cd",
+    "content-hash": "9a20a5528b89b298146ff92d311ca611",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -79,6 +79,67 @@
                 "source": "https://github.com/codeigniter4/CodeIgniter4"
             },
             "time": "2023-02-18T10:37:34+00:00"
+        },
+        {
+            "name": "hexageek1337/recaptcha-codeigniter4",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hexageek1337/reCAPTCHA-Codeigniter.git",
+                "reference": "b3a5a36e818e4fe594b4e25454886413d08ebd6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hexageek1337/reCAPTCHA-Codeigniter/zipball/b3a5a36e818e4fe594b4e25454886413d08ebd6a",
+                "reference": "b3a5a36e818e4fe594b4e25454886413d08ebd6a",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": ">=4.1.1"
+            },
+            "type": "codeigniter4-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Denny Septian Panggabean",
+                    "homepage": "https://denny.my.id"
+                },
+                {
+                    "name": "Bo-Yi Wu",
+                    "homepage": "https://twitter.com/appleboy"
+                }
+            ],
+            "description": "Free to Use Library reCAPTCHA v2 for Codeigniter 4.",
+            "homepage": "https://github.com/hexageek1337/reCAPTCHA-Codeigniter",
+            "keywords": [
+                "codeigniter",
+                "codeigniter4",
+                "php",
+                "recaptcha"
+            ],
+            "support": {
+                "issues": "https://github.com/hexageek1337/reCAPTCHA-Codeigniter/issues",
+                "source": "https://github.com/hexageek1337/reCAPTCHA-Codeigniter/tree/1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/hexageek1337",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://saweria.co/hexageek1337",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://sociabuzz.com/hexageek1337/tribe",
+                    "type": "custom"
+                }
+            ],
+            "abandoned": true,
+            "time": "2021-04-10T06:37:53+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
