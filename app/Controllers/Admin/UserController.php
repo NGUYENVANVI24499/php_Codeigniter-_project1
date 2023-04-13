@@ -25,7 +25,8 @@ class UserController extends BaseController
         $cssFile = ['https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css'];
         $jsFile = [
             'http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js',
-            base_url() . '/assets/admin/js/datatable.js'
+            base_url() . '/assets/admin/js/datatable.js',
+            base_url() . '/assets/admin/js/event.js'
         ];
         $dataLayout['users'] = $this->service->getAllUser();
         $data = $this->loadMasterlayout($data, 'Trang chủ / Tài khoản', 'admin/pages/user/user-list', $dataLayout, $cssFile, $jsFile);
@@ -41,5 +42,31 @@ class UserController extends BaseController
     public function create(){
         $result = $this->service->addUserInfor($this->request);
         return redirect()->back()->withInput()->with($result['masageCode'],$result['messages']);
+    }
+    public function edit($id){
+        $user = $this->service->getUserByID($id);
+        if(!$user){
+            return redirect('error/404');
+        }
+        $jsFile =[
+            base_url() . '/assets/admin/js/event.js'
+        ];
+        $data =[];
+        $dataLayout['user'] = $user;
+        $data = $this->loadMasterlayout([],'sua','admin/pages/user/edit-user', $dataLayout,[], $jsFile);
+        return view('admin/admin', $data);
+    }
+    public function update(){
+        $result = $this->service->updateUserInfo($this->request);
+        return redirect()->back()->withInput()->with($result['masageCode'],$result['messages']);
+    }
+    public function detete($id){
+        $user = $this->service->getUserByID($id);
+        if(!$user){
+            return redirect('error/404');
+        }
+        $result = $this->service->deleteUser($id);
+         
+        return redirect('admin/user/list')->back()->with($result['masageCode'],$result['messages']);
     }
 }

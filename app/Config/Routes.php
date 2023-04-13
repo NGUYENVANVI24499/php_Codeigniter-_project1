@@ -12,6 +12,7 @@ $routes = Services::routes();
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('HomeController');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -30,15 +31,29 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'User\HomeController::index');
+$routes->get('error/404',function(){
+    return view('errors/html/error_404');
+});
+$routes->get('login','Admin\LoginController::index');
+$routes->post('login','Admin\LoginController::login');
 
-$routes->group('admin',function($routes){
+$routes->group('admin',['filter'=>'adminFilter'],function($routes){
     $routes->get('home','Admin\HomeController::index');
+    $routes->get('logout','Admin\LoginController::logout');
     $routes->group('user',function($routes){
         $routes->get('list','Admin\UserController::index');
         $routes->get('add','Admin\UserController::add');
+        $routes->get('edit/(:num)','Admin\UserController::edit/$1');
         $routes->post('create','Admin\UserController::create');
+        $routes->post('update','Admin\UserController::update');
+        $routes->get('delete/(:num)','Admin\UserController::detete/$1');
     });
 });
+
+
+$route['default_controller'] = 'captcha_form';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -55,4 +70,5 @@ $routes->group('admin',function($routes){
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
 

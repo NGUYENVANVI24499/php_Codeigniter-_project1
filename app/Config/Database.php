@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => '127.0.0.1',
         'username' => 'root',
         'password' => '',
         'database' => 'sivi_app1',
@@ -41,7 +41,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3606,
+        'port'     => 3306,
     ];
 
     /**
@@ -65,7 +65,7 @@ class Database extends Config
         'compress'    => false,
         'strictOn'    => false,
         'failover'    => [],
-        'port'        => 3606,
+        'port'        => 3306,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
     ];
